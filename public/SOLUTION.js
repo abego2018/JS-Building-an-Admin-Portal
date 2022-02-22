@@ -1,11 +1,11 @@
 async function main() {
-
+    ​
         let response = await fetch('http://localhost:3001/listBooks')
         let books = await response.json()
-
+    ​
         books.forEach(renderBook)
     }
-
+    ​
     function renderBook(book) {
         let bookContainer = document.querySelector('#root')
         bookContainer.innerHTML += `
@@ -20,12 +20,12 @@ async function main() {
             </div>
         `
     }
-
+    ​
     function getBookInput(id) {
         let bookInput = document.getElementById(`book${id}`)
         return document.getElementById(`book${id}`)
     }
-
+    ​
     async function changeBookQuantity(id, quantity) {
         let response = await fetch("http://localhost:3001/updateBook", {
             method: "PATCH",
@@ -37,10 +37,10 @@ async function main() {
                 "quantity": quantity
             }),
         })
-
+    ​
         let bookInput = document.getElementById(`book${id}`)
         bookInput.value = quantity
-
+    ​
     }
-
-main()
+    ​
+    main()
